@@ -24,6 +24,7 @@ const App = () => {
   const [userAnswer, setUserAnswer] = useState<AnswerObject[]>([]);
   const [score, setScore] = useState(0);
   const [gameOver, setGameOver] = useState(true);
+  console.log(gameOver);
 
   const startGame = async () => {
     setLoading(true);
@@ -65,6 +66,7 @@ const App = () => {
     }
   };
 
+  console.log(userAnswer.length);
   return (
     <>
       <GlobalStyle />
@@ -84,7 +86,7 @@ const App = () => {
 
           {!gameOver && (
             <Fade direction="up">
-              <p>Score: {score}</p>
+              <Loading>Score: {score}</Loading>
             </Fade>
           )}
           {loading && (
@@ -118,9 +120,11 @@ const App = () => {
               </Button>
             </Fade>
           ) : null}
-          {gameOver && number + 1 === TOTAL_QUESTIONS ? (
-            <h2>Game Over</h2>
-          ) : null}
+          {userAnswer.length === TOTAL_QUESTIONS && (
+            <Fade direction="up">
+              <Loading>Game Over</Loading>
+            </Fade>
+          )}
         </WrapperItem>
       </AppWrapper>
     </>

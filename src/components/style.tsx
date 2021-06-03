@@ -5,7 +5,7 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 660px;
-  min-height: 460px;
+  min-height: 400px;
   padding: 1rem 0;
   justify-content: center;
   align-items: center;
@@ -14,8 +14,11 @@ export const Wrapper = styled.div`
   opacity: 0.8;
   border-radius: 30px;
 
-  @media (max-width: 500px) {
-    width: 400px;
+  @media (max-width: 700px) {
+    width: 560px;
+  }
+  @media (max-width: 600px) {
+    width: 460px;
   }
 `;
 
